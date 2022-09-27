@@ -27,6 +27,8 @@ for jndex in range(6,2,-1):
             #Only for longer words since it's very unlikely they won't contain vowels.
             if any(char in vowels for char in perm):
                 response = requests.post(url=url,data={"beseda":str(perm)})
+            else:
+                next
         except:
             logging.info('Bad request, not to worry')
             pass

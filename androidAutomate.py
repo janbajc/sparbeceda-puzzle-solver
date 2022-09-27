@@ -57,7 +57,6 @@ class Device:
 		# 	percent="True" (False by default): Sets the x,y input mode to percent of screen size
 		# """
 		if percent:
-			print(x,y)
 			x = (x/100)*self.screenWidth
 			y = (y/100)*self.screenHeight
 			os.system(f"adb -s {self.deviceId} shell input tap {x} {y}")
