@@ -6,26 +6,35 @@ Script to solve SPARbeceda puzzle for some prizes
 Game webpage: https://www.spar.si/promocije-in-projekti/aktualni-projekti/sparbeceda
 Game rules: https://www.spar.si/content/dam/sparsiwebsite/promocije-in-projekti/aktualni-projekti/sparbeceda/sparbeceda-pravila-nagradne-igre.pdf
 """
-array_of_letters = "ŠHLPRLJUMRNJAŠCJ"
+array_of_letters = "stnčmtarčnvsnnnz"
 unique_letters = ''.join(set(array_of_letters))
 valid_words = []
 perms = []
 valid_words_unique = []
 
-for jndex in range(5,2,-1):
+#Define max & min length to search
+
+# ['tumor', 'surov', 'burov']
+vowels = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
+
+for jndex in range(6,2,-1):
     perms = [''.join(jndex) for jndex in set(itertools.permutations(array_of_letters, jndex))]
     print('Searching', jndex, "letter words","Possible combinations", len(perms))
     for index, perm in enumerate(perms):
+
         url = 'https://www.franček.si/isci'
         try:
-            response = requests.post(url=url,data={"beseda":str(perm)})
+            #Only for longer words since it's very unlikely they won't contain vowels.
+            if any(char in vowels for char in perm):
+                response = requests.post(url=url,data={"beseda":str(perm)})
         except:
-            logging.info('Bad request, np np.')
-            pass
-        if response.status_code != 200:
+            logging.info('Bad request, not to worry')
             pass
         if not response:
             pass
+        if response.status_code != 200:
+            pass
+
         json_data = response.json()
         if json_data['response']:
             if sorted(json_data['response'][0]['title']) == sorted(perm.lower()):
