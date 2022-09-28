@@ -7,22 +7,14 @@ import time
 Script for inputting words into android SPAR application
 To be clear this script is really poorly writen
 """
-client = AdbClient(host='127.0.0.1', port=5037)
-devices = client.devices()
-device = devices[0]
 
-
-def findOccurrences(s, ch):
-    return [i for i, letter in enumerate(s) if letter == ch]
-
-
-myDevice = Device("192.168.10.140:38821")
+myDevice = Device("192.168.10.128:37397")
 screenWidth=myDevice.screenWidth
 screenHeight=myDevice.screenHeight
 screen_real_measurements = [6.7,14]
 testx = [1.7,2.8,3.9,5]
 testy = [6.8,7.7,8.5,9.2]
-array_of_letters = "stnčmtarčnvsnnnz"
+array_of_letters = "dldihjsncpsttmmo"
 coord = []
 matrix_of_letters = [array_of_letters[0:4],array_of_letters[4:8],array_of_letters[8:12],array_of_letters[12:16]]
 for indey,line in enumerate(matrix_of_letters):

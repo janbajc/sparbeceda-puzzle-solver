@@ -6,7 +6,7 @@ Script to solve SPARbeceda puzzle for some prizes
 Game webpage: https://www.spar.si/promocije-in-projekti/aktualni-projekti/sparbeceda
 Game rules: https://www.spar.si/content/dam/sparsiwebsite/promocije-in-projekti/aktualni-projekti/sparbeceda/sparbeceda-pravila-nagradne-igre.pdf
 """
-array_of_letters = "stnčmtarčnvsnnnz"
+array_of_letters = "dldihjsncpsttmmo"
 unique_letters = ''.join(set(array_of_letters))
 valid_words = []
 perms = []
@@ -17,7 +17,7 @@ valid_words_unique = []
 # ['tumor', 'surov', 'burov']
 vowels = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
 
-for jndex in range(6,2,-1):
+for jndex in range(5,2,-1):
     perms = [''.join(jndex) for jndex in set(itertools.permutations(array_of_letters, jndex))]
     print('Searching', jndex, "letter words","Possible combinations", len(perms))
     for index, perm in enumerate(perms):
