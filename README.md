@@ -1,4 +1,5 @@
 Script to solve SPARbeceda puzzle for some prizes <br />
+Automatisation of inputing words into puzzle - hardcoded for me phone <br />
 Game webpage: https://www.spar.si/promocije-in-projekti/aktualni-projekti/sparbeceda <br />
 Game rules: https://www.spar.si/content/dam/sparsiwebsite/promocije-in-projekti/aktualni-projekti/sparbeceda/sparbeceda-pravila-nagradne-igre.pdf <br />
 
